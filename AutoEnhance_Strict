@@ -1,0 +1,40 @@
+-- Works Better
+
+local PlayerIden = game.Players.LocalPlayer
+
+local char = PlayerIden.Character
+
+local hum = char:WaitForChild("Humanoid")
+
+local head = char:FindFirstChild("Head")
+
+local Offset = Vector3.new(0, -0.125, -2)
+
+local FOV = 120
+-----------------------------------------------------------------------------------  Scripts
+game.Workspace.CurrentCamera.FieldOfView = FOV
+hum.CameraOffset = Offset
+PlayerIden.CameraMode = "LockFirstPerson"
+-- FPB
+game:GetService("RunService").RenderStepped:Connect(function()
+	for i, part in pairs(char:GetChildren())do
+		if string.match(part.Name, "Arm")or string.match(part.Name, "Hand")then
+			part.LocalTransparencyModifier = 0
+		end
+	end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+	for i, part in pairs(char:GetChildren())do
+		if string.match(part.Name, "Leg")or string.match(part.Name, "Foot")then
+			part.LocalTransparencyModifier = 0
+		end
+	end
+end)
+game:GetService("RunService").RenderStepped:Connect(function()
+	for i, part in pairs(char:GetChildren())do
+		if string.match(part.Name, "Torso")or string.match(part.Name, "Waist")then
+			part.LocalTransparencyModifier = 0
+		end
+	end
+end)
+end
