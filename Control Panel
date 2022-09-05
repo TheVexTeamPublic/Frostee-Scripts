@@ -13,7 +13,7 @@ local UICorner_3 = Instance.new("UICorner")
 -- UI Properties:
 
 Frostee_Control_Panel.Name = "Frostee_Control_Panel"
-Frostee_Control_Panel.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Frostee_Control_Panel.Parent = game:GetService("CoreGui")
 Frostee_Control_Panel.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
