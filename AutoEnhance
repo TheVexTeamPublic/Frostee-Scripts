@@ -43,27 +43,23 @@ end
 
 if BodyVisible == true then
 local player = game:GetService("Players").LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
 game:GetService("RunService").RenderStepped:Connect(function()
-	for i, part in pairs(character:GetChildren())do
+	for i, part in pairs(char:GetChildren())do
 		if string.match(part.Name, "Arm")or string.match(part.Name, "Hand")then
 			part.LocalTransparencyModifier = 0
 		end
 	end
 end)
 local player = game:GetService("Players").LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
 game:GetService("RunService").RenderStepped:Connect(function()
-	for i, part in pairs(character:GetChildren())do
+	for i, part in pairs(char:GetChildren())do
 		if string.match(part.Name, "Leg")or string.match(part.Name, "Foot")then
 			part.LocalTransparencyModifier = 0
 		end
 	end
 end)
-local player = game:GetService("Players").LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
 game:GetService("RunService").RenderStepped:Connect(function()
-	for i, part in pairs(character:GetChildren())do
+	for i, part in pairs(char:GetChildren())do
 		if string.match(part.Name, "Torso")or string.match(part.Name, "Waist")then
 			part.LocalTransparencyModifier = 0
 		end
