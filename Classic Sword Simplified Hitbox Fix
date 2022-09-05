@@ -1,1 +1,29 @@
 
+local player = game:GetService("Players").LocalPlayer
+game:GetService("RunService").RenderStepped:Connect(function()
+    local p = game.Players:GetPlayers()
+    for i = 2, #p do local v = p[i].Character
+        if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(v.HumanoidRootPart.Position) <= 3 then
+            local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+            if tool and tool:FindFirstChild("Handle") then
+                tool:Activate()
+                for i,v in next, v:GetChildren() do
+                    if v:IsA("BasePart") then
+                        firetouchinterest(tool.Handle,v,0)
+                        firetouchinterest(tool.Handle,v,1)
+                    end
+                end
+            end
+        end
+    end
+end)
+-- Thx to the original creator for letting this out on the web, and also allowing me to get a better fix scripot for my shitty hitboxes than just my regular script.
+
+--[[ ~ Frostee.Private. Mods for Frostee.Private include:
+1. Undetectable, but better.
+2. Universal for weapons.
+3. Better script and some improvements.
+4. Can be easily modded for Kill Aura.
+5. Simple mods, Frostee.Private GUI Supported.
+----- Ever going to be released? >>>>> Probably not.
+]]
