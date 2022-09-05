@@ -1,5 +1,6 @@
 -- Main Control Panel Of Frostee
 local Frostee_Control_Panel = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
 local Page_1 = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
 local UICorner = Instance.new("UICorner")
@@ -15,10 +16,19 @@ Frostee_Control_Panel.Name = "Frostee_Control_Panel"
 Frostee_Control_Panel.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 Frostee_Control_Panel.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+Main.Name = "Main"
+Main.Parent = Frostee_Control_Panel
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BackgroundTransparency = 1.000
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.283757329, 0, 0.253465354, 0)
+Main.Size = UDim2.new(0, 200, 0, 50)
+Main.ZIndex = 15
+
 Page_1.Name = "Page_1"
-Page_1.Parent = Frostee_Control_Panel
+Page_1.Parent = Main
 Page_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Page_1.Position = UDim2.new(0.283757329, 0, 0.253465354, 0)
+Page_1.Position = UDim2.new(-0.00124267116, 0, -0.00653463602, 0)
 Page_1.Size = UDim2.new(0, 200, 0, 200)
 
 Label.Name = "Label"
@@ -79,6 +89,47 @@ Next_Page_Button.TextSize = 14.000
 Next_Page_Button.TextWrapped = true
 
 UICorner_3.Parent = Next_Page_Button
+
+-- Dragging
+
+local UserInputService = game:GetService("UserInputService")
+
+local gui = Main
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local function update(input)
+	local delta = input.Position - dragStart
+	gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+gui.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = gui.Position
+		
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+gui.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
 
 -- Scripts
 
