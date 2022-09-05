@@ -1,0 +1,87 @@
+-- Main Control Panel Of Frostee
+local Frostee_Control_Panel = Instance.new("ScreenGui")
+local Page_1 = Instance.new("Frame")
+local Label = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local Hackcheck = Instance.new("TextButton")
+local AutoEnhance = Instance.new("TextButton")
+local Next_Page_Button = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+
+-- UI Properties:
+
+Frostee_Control_Panel.Name = "Frostee_Control_Panel"
+Frostee_Control_Panel.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Frostee_Control_Panel.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Page_1.Name = "Page_1"
+Page_1.Parent = Frostee_Control_Panel
+Page_1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Page_1.Position = UDim2.new(0.283757329, 0, 0.253465354, 0)
+Page_1.Size = UDim2.new(0, 200, 0, 200)
+
+Label.Name = "Label"
+Label.Parent = Page_1
+Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Label.Size = UDim2.new(0, 200, 0, 50)
+Label.Font = Enum.Font.Highway
+Label.Text = "FROSTEE CONTROL PANEL"
+Label.TextColor3 = Color3.fromRGB(0, 0, 0)
+Label.TextScaled = true
+Label.TextSize = 14.000
+Label.TextWrapped = true
+
+UICorner.Parent = Label
+
+UICorner_2.Parent = Page_1
+
+Hackcheck.Name = "Hackcheck"
+Hackcheck.Parent = Page_1
+Hackcheck.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Hackcheck.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Hackcheck.Position = UDim2.new(0, 0, 0.289999992, 0)
+Hackcheck.Selectable = false
+Hackcheck.Size = UDim2.new(0, 75, 0, 50)
+Hackcheck.Font = Enum.Font.SourceSans
+Hackcheck.Text = "Hackcheck (Does not work cause PB account got hacked)"
+Hackcheck.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hackcheck.TextScaled = true
+Hackcheck.TextSize = 14.000
+Hackcheck.TextWrapped = true
+
+AutoEnhance.Name = "AutoEnhance"
+AutoEnhance.Parent = Page_1
+AutoEnhance.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutoEnhance.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoEnhance.Position = UDim2.new(0.625, 0, 0.289999992, 0)
+AutoEnhance.Selectable = false
+AutoEnhance.Size = UDim2.new(0, 75, 0, 50)
+AutoEnhance.Font = Enum.Font.SourceSans
+AutoEnhance.Text = "AutoEnhance"
+AutoEnhance.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoEnhance.TextScaled = true
+AutoEnhance.TextSize = 14.000
+AutoEnhance.TextWrapped = true
+
+Next_Page_Button.Name = "Next_Page_Button"
+Next_Page_Button.Parent = Page_1
+Next_Page_Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Next_Page_Button.BorderSizePixel = 0
+Next_Page_Button.Position = UDim2.new(0, 0, 0.75, 0)
+Next_Page_Button.Selectable = false
+Next_Page_Button.Size = UDim2.new(0, 200, 0, 50)
+Next_Page_Button.Font = Enum.Font.Highway
+Next_Page_Button.Text = "Next Page --->"
+Next_Page_Button.TextColor3 = Color3.fromRGB(0, 0, 0)
+Next_Page_Button.TextScaled = true
+Next_Page_Button.TextSize = 14.000
+Next_Page_Button.TextWrapped = true
+
+UICorner_3.Parent = Next_Page_Button
+
+-- Scripts
+
+AutoEnhance.MouseButton1Click:Connect(function()
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/TheVexTeamPublic/Frostee-Scripts/main/AutoEnhance'))()
+end)
