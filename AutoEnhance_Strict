@@ -12,6 +12,8 @@ local Offset = Vector3.new(0, -0.125, -2)
 
 local FOV = 120
 -----------------------------------------------------------------------------------  Scripts
+
+while true do
 game.Workspace.CurrentCamera.FieldOfView = FOV
 hum.CameraOffset = Offset
 PlayerIden.CameraMode = "LockFirstPerson"
@@ -37,4 +39,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 		end
 	end
 end)
+end
+
+wait(0)
 end
