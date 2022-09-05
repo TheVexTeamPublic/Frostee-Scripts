@@ -25,7 +25,7 @@ local hum = char:WaitForChild("Humanoid")
 
 local head = char:FindFirstChild("Head")
 
-local Offset = Vector3.new(0, -0.125, -3)
+local Offset = Vector3.new(0, -0.125, -2)
 
 hum.CameraOffset = Offset
 
